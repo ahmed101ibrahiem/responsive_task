@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(18.sp),
                   child: CachedNetworkImage(
                         imageUrl: item,
-                    height:  isportrait?context.height*0.18: context.height*0.45,
+                    height:  isportrait?context.height*0.18: context.height*0.47,
                     width:isportrait?context.weight*0.8: context.weight*0.7,
                     fit: BoxFit.cover,
                       ),
@@ -67,10 +67,10 @@ class HomeScreen extends StatelessWidget {
                 .toList(),
             options: CarouselOptions(
               autoPlay: true,
-              height: isportrait?context.height*0.18: context.height*0.45,
+              height: isportrait?context.height*0.18: context.height*0.47,
               initialPage: 1,
               reverse: true,
-              viewportFraction:isportrait?0.8: 0.6,
+              viewportFraction:isportrait?0.8: 0.7,
               autoPlayAnimationDuration: const Duration(milliseconds: 100),
               enlargeCenterPage: true,
               onPageChanged: (index, reason) {},
@@ -80,13 +80,13 @@ class HomeScreen extends StatelessWidget {
           alignment: Alignment.center,
           child: GridView.builder(
 
-
             shrinkWrap: true,
             padding:isportrait? EdgeInsets.all(16.h):EdgeInsets.all(2.w),
             itemCount: allServices.length,
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate:
                 SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisSpacing: isportrait?28.sp:0,
                     crossAxisCount: orientation == Orientation.portrait?2:4,
 
 

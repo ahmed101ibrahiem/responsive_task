@@ -6,6 +6,7 @@ Widget customService(
     {required int index, required Orientation orientation,required allServices}) {
 
   return Container(
+
     margin: EdgeInsets.all(8.w),
     decoration: BoxDecoration(
         border: Border.all(color: Colors.green,width: 3.w),
@@ -16,6 +17,7 @@ Widget customService(
       backgroundColor: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(
             allServices[index].icon,
