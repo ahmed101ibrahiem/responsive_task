@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget customService(
-    {required int index, required Orientation orientation,required allServices}) {
+    {required IconData iconData, required Orientation orientation,required String title}) {
 
   return Container(
 
@@ -17,15 +17,14 @@ Widget customService(
       backgroundColor: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(
-            allServices[index].icon,
-            size: orientation == Orientation.portrait ? 38.h : 30.w,
+            iconData,
+            size: orientation == Orientation.portrait ? 38.h : 25.w,
           ),
           SizedBox(height: 8.h,),
           Text(
-            allServices[index].title,
+            title,
             style: TextStyle(
                 color: Colors.black,
                 fontWeight:orientation == Orientation.portrait? FontWeight.bold:FontWeight.w900,

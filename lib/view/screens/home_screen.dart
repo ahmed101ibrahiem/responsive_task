@@ -76,25 +76,19 @@ class HomeScreen extends StatelessWidget {
               onPageChanged: (index, reason) {},
             )),
         SizedBox(height:isportrait? context.height * 0.02:context.height * 0.04),
-        Align(
-          alignment: Alignment.center,
-          child: GridView.builder(
+        GridView(
+          shrinkWrap: true,
+          padding:isportrait? EdgeInsets.all(16.h):EdgeInsets.all(2.w),
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisSpacing: isportrait?28.sp:0,
+                  crossAxisCount: orientation == Orientation.portrait?2:4,
+              ),
+          children: allServices.map((e) {
+            return customService(iconData: e.icon, orientation: orientation, title: e.title);
+          }).toList()
 
-            shrinkWrap: true,
-            padding:isportrait? EdgeInsets.all(16.h):EdgeInsets.all(2.w),
-            itemCount: allServices.length,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisSpacing: isportrait?28.sp:0,
-                    crossAxisCount: orientation == Orientation.portrait?2:4,
-
-
-
-                ),
-            itemBuilder: (context, index) =>
-                customService(allServices :allServices,index: index, orientation: orientation),
-          ),
         ),
       ]),
     );
