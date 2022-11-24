@@ -2,8 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../screens/responsible.dart';
+
 Widget customService(
-    {required IconData iconData, required Orientation orientation,required String title}) {
+    {required IconData iconData, required Orientation orientation,required String title,required BuildContext context}) {
 
   return Container(
 
@@ -12,25 +14,28 @@ Widget customService(
         border: Border.all(color: Colors.green,width: 3.w),
         shape: BoxShape.circle
     ),
-    child: CircleAvatar(
-      //radius: orientation == Orientation.portrait?30.0:60.0,
-      backgroundColor: Colors.white,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            iconData,
-            size: orientation == Orientation.portrait ? 38.h : 25.w,
-          ),
-          SizedBox(height: 8.h,),
-          Text(
-            title,
-            style: TextStyle(
-                color: Colors.black,
-                fontWeight:orientation == Orientation.portrait? FontWeight.bold:FontWeight.w900,
-                fontSize: 18),
-          ),
-        ],
+    child: InkWell(
+      onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>ResponsiblePage())),
+      child: CircleAvatar(
+        //radius: orientation == Orientation.portrait?30.0:60.0,
+        backgroundColor: Colors.white,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              iconData,
+              size: orientation == Orientation.portrait ? 38.h : 25.w,
+            ),
+            SizedBox(height: 8.h,),
+            Text(
+              title,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight:orientation == Orientation.portrait? FontWeight.bold:FontWeight.w900,
+                  fontSize: 18),
+            ),
+          ],
+        ),
       ),
     ),
   );}
